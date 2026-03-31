@@ -29,7 +29,7 @@ const bookStore = {
         },
         {
             id:5,
-            title: 'You Don’t Know JS',
+            title: "You Don’t Know JS",
             author: 'Kyle Simpson',
             imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41T5H8u7fUL._SX331_BO1,204,203,200_.jpg'
         },
@@ -44,4 +44,28 @@ const bookStore = {
 }
 
 // Write your code here!
+const bookStoreTitle = document.querySelector('#header')
+bookStoreTitle.textContent = bookStore.name
+const bookList = document.querySelector('#book-list')
+const ul = document.getElementById('delete-this')
+bookList.removeChild(ul)
+
+
+bookStore.books.forEach(book => {
+    const bookContainer = document.createElement('li')
+    const bookTitle = document.createElement('h3')
+    bookTitle.textContent = book.title
+    const bookAuthor = document.createElement('p')
+    bookAuthor.textContent = book.author
+    const bookImage = document.createElement('img')
+    bookImage.src = book.imageUrl    
+    bookContainer.appendChild(bookTitle)
+    bookContainer.appendChild(bookAuthor)
+    bookContainer.appendChild(bookImage)
+    bookList.appendChild(bookContainer)
+})
+
+
+
+
 
